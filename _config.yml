@@ -1,0 +1,9 @@
+remote theme: agency-jekyll-theme @gh-pages
+plugins: 
+= jekyll-remote-theme
+
+title: Hair Style Recognizer
+description: Hair Style Recognizer that recognizes 22 differerent types of Hair Styles
+
+author:
+  name: Srayoshi Bashed Mirza
