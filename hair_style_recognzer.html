@@ -11,7 +11,7 @@ layout: page-content
 import { client } from "@gradio/client";
 
 
-async function run() {
+async function loaded(reader) {
 
 	const response_0 = await fetch("https://raw.githubusercontent.com/gradio-app/gradio/main/test/test_files/bus.png");
 	const exampleImage = await response_0.blob();
@@ -22,8 +22,18 @@ async function run() {
 	]);
 
 	console.log(result?.data);
+    const label = response.json()
+    results.innerHTML = `<br/><img src = "${reader.result}" width="500"><p> ${label}</p>`
 }
 
-run();
+function read()
+{
+   const reader = new FileReader();
+   reader.addEventListener('load', ()=> loaded(reader))
+    reader.readAsDataURL(photo.files[0])
+}
+//run();
 
+
+photo.addEventListener('input', read)
 </script>
